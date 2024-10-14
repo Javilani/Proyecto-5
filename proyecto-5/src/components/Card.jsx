@@ -1,15 +1,27 @@
-export const CardPokemon = ({ pokemon }) => {
+import { useState, useEffect } from 'react';
+
+const PokemonCard = ({ pokemon }) => {
+    const [pokemonData, setPokemonData] = useState(null);
+
+    useEffect(() => {
+        // Hacemos la solicitud a la URL específica del Pokémon
+        fetch(pokemon.url)
+            .then(response => response.json())
+            .then(data => setPokemonData(data))
+            .catch(error => console.error('Error fetching Pokémon data:', error));
+    }, [pokemon.url]);
+
+    if (!pokemonData) {
+        return <div>Loading...</div>; // Mostrar mientras se cargan los datos
+    }
+
     return (
         <div className="card">
-            <div className="card__header">
-                <img 
-                    src={pokemon.sprites?.other?.['official-artwork']?.front_default || 'placeholder-image-url'} 
-                    alt={`foto de ${pokemon.name}`}/>
-            </div>
-            <div className="card__body">
-                <h2 className="card__title">{pokemon.name}</h2>
-                <p>ID: {pokemon.id}</p>
-            </div>
+            <h2>{pokemon.name} (ID: {pokemonData.id})</h2>
+            {/* Accedemos a la imagen del sprite frontal del Pokémon */}
+            <img src={pokemonData.sprites?.front_default} alt={pokemon.name} />
         </div>
-    )
-}
+    );
+};
+
+export default PokemonCard;

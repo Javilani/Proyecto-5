@@ -1,22 +1,30 @@
-import { CardPokemon } from "./Card";
-import { useFetchPokemon } from "../hooks/useFetchPokemon";
+import { useEffect, useState } from 'react';
+import { getPokemon } from '../services/apiPokemon';
+import PokemonCard from './Card';
 
-export const PokemonList = () => {
-    const { pokemons = [] } = useFetchPokemon();
+const PokemonList = () => {
+    const [pokemons, setPokemons] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getPokemon();
+                setPokemons(data.results);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     return (
-        <>
-            {
-                pokemons.length > 0 ? (
-                    pokemons.map((pokemon) => (
-                        <div key={pokemon.id}>
-                            <CardPokemon pokemon={pokemon} />
-                        </div>
-                    ))
-                ) : (
-                    <p>Loading...</p> 
-                )
-            }
-        </>
+        <div className="pokemon-list">
+            {pokemons.map((pokemon, index) => (
+                <PokemonCard key={index} pokemon={pokemon} />
+            ))}
+        </div>
     );
-}
+};
+
+export default PokemonList;
