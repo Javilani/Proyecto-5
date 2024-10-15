@@ -1,10 +1,13 @@
-import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MisRutas from './routes/MisRutas.jsx'
+import './App.css'
 
-import PokemonList from './components/PokemonList';
 
 export const App = () => {
   return (
-    <PokemonList />
+    <div className='homePage'>
+      <MisRutas />
+    </div>
   )
 };
 

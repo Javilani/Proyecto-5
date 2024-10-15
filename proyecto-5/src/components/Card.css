@@ -1,0 +1,11 @@
+.card {
+    background-color: #2B4F8D; 
+    border: 2px solid #04BBEC; 
+    border-radius: 8px; 
+    padding: 16px; 
+    margin: 10px;
+}
+
+.textCard {
+    color: whitesmoke;
+}

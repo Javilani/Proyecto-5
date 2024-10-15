@@ -1,0 +1,39 @@
+.pokemon-list-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem 0rem;
+    text-align: center;
+}
+
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #04BBEC; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pagination button:hover {
+    background-color: #039ABA; 
+}
+
+.pagination button:disabled {
+    background-color: #cccccc; 
+    cursor: not-allowed;
+}
