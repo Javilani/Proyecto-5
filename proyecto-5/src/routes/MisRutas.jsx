@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PokemonList from '../components/PokemonList.jsx';  // Página de inicio
-import BuscarPokemon from '../components/BuscarPokemon.jsx';  // Página de búsqueda
-import Navbar from '../components/Navbar.jsx';  // Tu Navbar
+import PokemonList from '../components/PokemonList.jsx';
+import PokemonDetail from '../components/PokemonDetail.jsx';
+import Navbar from '../components/Navbar.jsx';  
 import Footer from '../components/Footer.jsx';
 
 const AppRoutes = () => {
@@ -11,7 +11,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<PokemonList />} />
         <Route path="/inicio" element={<PokemonList />} />
-        <Route path="/buscar" element={<BuscarPokemon />} />
+        <Route path="/buscar/:searchTerm" element={<PokemonDetail />} /> {/* Ruta para mostrar detalles del Pokémon */}
       </Routes>
       <Footer />
     </Router>

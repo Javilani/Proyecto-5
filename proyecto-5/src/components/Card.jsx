@@ -5,7 +5,6 @@ const PokemonCard = ({ pokemon }) => {
     const [pokemonData, setPokemonData] = useState(null);
 
     useEffect(() => {
-        // Hacemos la solicitud a la URL específica del Pokémon
         fetch(pokemon.url)
             .then(response => response.json())
             .then(data => setPokemonData(data))
@@ -13,7 +12,7 @@ const PokemonCard = ({ pokemon }) => {
     }, [pokemon.url]);
 
     if (!pokemonData) {
-        return <div>Loading...</div>; // Mostrar mientras se cargan los datos
+        return <div>Loading...</div>;
     }
 
     const capitalizeFirstLetter = (string) => {

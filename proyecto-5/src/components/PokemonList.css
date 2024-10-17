@@ -8,7 +8,7 @@
 .pokemon-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 5px;
     padding: 20px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .pagination button {
-    background-color: #04BBEC; 
+    background-color: #2B4F8D; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -36,4 +36,32 @@
 .pagination button:disabled {
     background-color: #cccccc; 
     cursor: not-allowed;
+}
+
+
+@media (max-width: 1024px) {
+    .pokemon-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .pokemon-list {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    .pokemon-list {
+        grid-template-columns: repeat(1, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .pagination button {
+        padding: 8px 15px;
+        font-size: 14px;
+        margin: 0 5px;
+    }
 }

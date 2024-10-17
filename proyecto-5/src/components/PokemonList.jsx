@@ -24,7 +24,6 @@ const PokemonList = () => {
     }, [currentPage]); 
 
     const nextPage = () => {
-        // Cambia la condición para permitir que solo haya hasta 150 Pokémon
         if (currentPage < Math.ceil(maxPokemons / pokemonsPerPage)) {
             setCurrentPage(currentPage + 1);
         }
