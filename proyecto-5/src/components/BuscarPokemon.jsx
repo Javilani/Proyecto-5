@@ -5,7 +5,6 @@ const BuscarPokemon = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim() !== '') {
-      // Aquí podrías hacer la lógica de búsqueda, como hacer fetch a una API con el término de búsqueda.
       console.log('Buscando:', searchTerm);
     } else {
       console.log('Por favor, ingresa un nombre o número válido');
