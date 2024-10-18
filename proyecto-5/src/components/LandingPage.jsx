@@ -6,7 +6,7 @@ const LandingPage = () => {
         <div className="landing-container">
             <h1>¡Bienvenido a la Pokedex!</h1>
             <img
-                src="../public/pokeball.png"
+                src="/pokeball.png"
                 alt="Pikachu"
                 className="landing-image"
             />
