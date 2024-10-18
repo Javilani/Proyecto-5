@@ -1,32 +1,13 @@
-// import { useParams } from 'react-router-dom';
-// import { Card } from 'react-bootstrap';
-
-// const PokemonDetail = () => {
-//     const { searchTerm } = useParams(); // Obtener el término de búsqueda de la URL
-
-//     // Aquí puedes realizar la lógica para buscar el Pokémon por ID o nombre
-//     // Por ejemplo, puedes buscar en un array de Pokémon o hacer una llamada a una API
-
-//     return (
-//         <div>
-//             <h1>Detalles de Pokémon: {searchTerm}</h1>
-//             <Card />
-//         </div>
-//     );
-// };
-
-// export default PokemonDetail;
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './PokemonDetail.css';
 
 const PokemonDetail = () => {
-    const { searchTerm } = useParams(); // Obtener el término de búsqueda de la URL
-    const [pokemonData, setPokemonData] = useState(null); // Estado para los datos del Pokémon
-    const [loading, setLoading] = useState(true); // Estado de carga
+    const { searchTerm } = useParams();
+    const [pokemonData, setPokemonData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Convertir el searchTerm a minúsculas para la búsqueda
         const fetchPokemon = async () => {
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`);
@@ -38,23 +19,23 @@ const PokemonDetail = () => {
             } catch (error) {
                 console.error('Error fetching Pokémon data:', error);
             } finally {
-                setLoading(false); // Cambiar el estado de carga
+                setLoading(false);
             }
         };
 
-        fetchPokemon(); // Llamar a la función
-    }, [searchTerm]); // Ejecutar cuando searchTerm cambie
+        fetchPokemon();
+    }, [searchTerm]);
 
     if (loading) {
-        return <div>Loading...</div>; // Mostrar mientras se cargan los datos
+        return <div>Loading...</div>;
     }
 
     if (!pokemonData) {
-        return <h1>Pokémon no encontrado</h1>; // Mensaje si no se encuentra el Pokémon
+        return <h1>Pokémon no encontrado</h1>;
     }
 
-    const height = (pokemonData.height * 0.1).toFixed(1); // Convertir altura a metros
-    const weight = (pokemonData.weight * 0.1).toFixed(1); // Convertir peso a kilogramos
+    const height = (pokemonData.height * 0.1).toFixed(1);
+    const weight = (pokemonData.weight * 0.1).toFixed(1);
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
