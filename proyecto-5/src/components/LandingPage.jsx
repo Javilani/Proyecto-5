@@ -11,7 +11,7 @@ const LandingPage = () => {
                 className="landing-image"
             />
             <Link to="/inicio">
-                <button className="btn btn-primary">Ir a Inicio</button>
+                <button className="btn btn-primary">Ir a la Pokedex</button>
             </Link>
         </div>
     );
