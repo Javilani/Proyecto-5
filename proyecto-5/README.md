@@ -54,7 +54,7 @@ Navegación
 
 Estructura del Proyecto
 
-![Estructura](https://res.cloudinary.com/de2p3kdgv/image/upload/v1729286955/estructura_ud36o2.png)
+![Estructura](https://res.cloudinary.com/de2p3kdgv/image/upload/v1729340119/estruc_proy5_h3m6sv.png)
 ## Authors
 
 - [Javier Lagos](https://www.linkedin.com/in/javier-lagos-nieto-557169220/)
